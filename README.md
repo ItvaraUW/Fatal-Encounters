@@ -36,7 +36,10 @@ The **Fatal Encounters dataset** inspired our project to map how often **police 
 + We will read our data through **.csv** file for now, but if we find an API to **pull directly from a Google sheets** then we’d implement that to keep the data up to date.
 
 #### _Data-wrangling_
-+ “Project leverages **interactivity** to _allow users_ to **ask questions** about the dataset(s). **Widgets** provide a mechanism for _asking different questions_ of the datasets. Students use _standard interactive elements and layouts_ to guide user behavior.”
++ Data wrangling for our project will _differ_ **depending** on if we find a way to **utilize the online database** that will always be up to date **versus the .csv** which is only a snapshot at the _current time of downloading._
+  + In the case of figuring out a way to **utilize the online database through an API**, we will need to _setup requests_ to obtain the data and _convert it into a usable dataset._
++ From both cases, we will have to **reformat the dataset** to replace all **empty and incomplete** entries with `NA` for ease of _calculation and organization._
++ From there, the data will be **reshaped and reorganized** based on the **user's choices** to show a _graphical representation of the user's question._
 
 #### _Libraries_
 + We are curious about `ggplotmovies` but only if it’s _compatible_ with the **Shiny** widgets.
