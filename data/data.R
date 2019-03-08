@@ -5,4 +5,4 @@
 
 # library("googlesheets") // to maybe use later as api access
 
-fatal_encounters_df <- read.csv("Fatal_Encouters_dataset.csv", stringsAsFactors = F)
+FE_df <- read.csv("Fatal_Encouters_dataset.csv", stringsAsFactors = F)
