@@ -5,4 +5,6 @@
 
 # library("googlesheets") // to maybe use later as api access
 
-FE_df <- read.csv("Fatal_Encounters_data.csv", stringsAsFactors = F)
+FE_df <- read.csv("Fatal_Encounters_data.csv",
+                  stringsAsFactors = F,
+                  na.strings = c("", "NA"))
