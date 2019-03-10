@@ -1,7 +1,7 @@
 library(dplyr)
 library(ggplot2)
 
-# Creates a list of labels for whichever column name is chosen
+# Creates a list of labels for whatever column name is chosen
 # for the function
 key <- list(
   Subject.s.gender = "Gender",
