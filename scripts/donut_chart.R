@@ -3,19 +3,9 @@ library(plotly)
 
 
 # Make an interactive donut chart that shows individuals within each group 
-# that die to fatal encounters.
-
-fatal_encounters_df <- read.csv("data/Fatal_Encounters_data.csv", 
-                                stringsAsFactors = F,
-                                na.strings = c("", "NA"))
+# that was killed to fatal encounters.
 
 donut_chart <- function(data_frame_num, variable){
-  fatal_encounters_df <- fatal_encounters_df[!(grepl(
-    "2100", fatal_encounters_df$Date..Year.)),]
-  
-  data_frame_num <- transform(fatal_encounters_df, 
-                              Date..Year. = as.numeric(Date..Year.))
-  
   data_for_graph <- data_frame_num %>%
     select(Unique.ID, Subject.s.gender, Subject.s.race, 
            Cause.of.death, Date..Year.) %>%
