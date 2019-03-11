@@ -12,7 +12,7 @@
 library(dplyr) # includes: ggplot2 dplyr tidyr stringr
 library(leaflet)
 
-make_map <- function(FE_df) {
+make_map <- function(FE_df, state_in, age_in, gender_in, race_in, year_in) {
   profile <- FE_df %>%
     rename(
       name = Subject.s.name,
@@ -25,9 +25,9 @@ make_map <- function(FE_df) {
     ) %>%
     select(name, age, gender, race, state, date, Longitude, Latitude, year) %>%
     filter(state %in% state.abb) %>%
-    filter(state == input$state_in) %>%
-    filter(age == input$age_in & gender == input$gender_in &
-      race == input$race_in | year == input$year_in)
+    filter(state == state_in) %>%
+    filter(age == age_in & gender == gender_in &
+      race == race_in | year == year_in)
   points_map <- profile %>%
     leaflet(options = leafletOptions(
       dragging = F,
