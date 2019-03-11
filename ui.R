@@ -5,6 +5,7 @@
 library(shiny)
 library(shinythemes)
 library(plotly)
+library(leaflet)
 
 genders <- list(
   "Male" = "Male",
@@ -28,6 +29,16 @@ causes <- list(
   "Undetermined" = "Undetermined",
   "Vehicle" = "Vehicle",
   "Other" = "Other"
+)
+
+races <- list(
+  "African-American/Black" = "African-American/Black",
+  "Asian/Pacific Islander" = "Asian/Pacific Islander",
+  "European-American/White" = "European-American/White",
+  "Hispanic/Latino" = "Hispanic/Latino",
+  "Middle Eastern" = "Middle Eastern",
+  "Native American/Alaskan" = "Native American/Alaskan",
+  "Race unspecified" = "Race unspecified"
 )
 
 factors <- list(
@@ -111,10 +122,38 @@ shinyUI(
       title = "Distrubution by State",
       sidebarLayout(
         sidebarPanel(
-          p("Options here")
+          textInput(
+            inputId = "state_in",
+            label = "State",
+            value = ""
+          ),
+          numericInput(
+            inputId = "age_in",
+            label = "Age",
+            value = ""
+          ),
+          radioButtons(
+            inputId = "gender_in",
+            label = "Gender",
+            choices = genders,
+            selected = NULL
+          ),
+          selectInput(
+            inputId = "race_in",
+            label = "Race",
+            choices = races,
+            selected = NULL
+          ),
+          sliderInput(
+            inputId = "year_in",
+            label = "Year",
+            min = 2000,
+            max = 2019,
+            value = 2000
+          )
         ),
         mainPanel(
-          p("Graph here")
+          leafletOutput("map")
         )
       )
     ),
