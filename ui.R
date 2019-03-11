@@ -45,7 +45,23 @@ shinyUI(
     tabPanel(
       title = "About this project",
       mainPanel(
-        p("Placeholder")
+        h1("Project Description"),
+        h2("Data Set"),
+        p("The data set we’re working with is called “Fatal Encounters”. 
+          This database consists of information of civilian interactions with 
+          the police and resulting in the death of a civilian - 
+          in the United States of America since January 1st 2000."),
+        p("The founding director of this dataset was a journalist called 
+          D. Brian Burghart. He’s a former editor and publisher of _Reno News 
+          and Review_, and a journalism instructor at the University of Nevada, 
+          Reno."),
+        p("The way they collect data is from data sets like KilledByPolice.net 
+          or Los Angeles Time’s The Homicide Report. They then continue to 
+          do further research on any information they may have missed or 
+          from reports by volunteers. After that, they start to verify it
+          against published source by their paid Principal Investigator. 
+          The verification of data are all compared to published media reports
+          or public records.")
       )
     ),
     
