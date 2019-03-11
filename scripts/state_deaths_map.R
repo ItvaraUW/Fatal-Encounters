@@ -24,10 +24,10 @@ make_map <- function(FE_df, state_in, age_in, gender_in, race_in, year_in) {
       year = Date..Year.
     ) %>%
     select(name, age, gender, race, state, date, Longitude, Latitude, year) %>%
-    filter(state %in% state.abb) %>%
     filter(state == state_in) %>%
     filter(age == age_in & gender == gender_in &
              race == race_in | year == year_in)
+  
   points_map <- profile %>%
     leaflet(options = leafletOptions(
       dragging = F,
