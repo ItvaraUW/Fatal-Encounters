@@ -13,4 +13,8 @@ shinyServer(function(input, output) {
   output$cause_plot <- renderPlot({
     death_rate_growth(FE_df, input$cause_choices, col_name = "Cause.of.death")
   })
+  
+  output$donut_chart <- renderPlotly({
+    donut_chart(FE_df, sym(input$factor), input$factor)
+  })
 })

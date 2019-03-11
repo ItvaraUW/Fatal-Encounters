@@ -4,6 +4,7 @@
 # date: "20190301"
 library(shiny)
 library(shinythemes)
+library(plotly)
 
 genders <- list(
   "Male" = "Male",
@@ -28,31 +29,39 @@ causes <- list(
   "Vehicle" = "Vehicle",
   "Other" = "Other"
 )
+
+factors <- list(
+  "Race" = "race",
+  "Gender" = "gender",
+  "Cause of Death" = "cause",
+  "Year" = "year"
+)
+
 shinyUI(
   navbarPage(
-    "Fatal Encounters",
+    title = "Fatal Encounters",
     theme = shinytheme("journal"),
     
     tabPanel(
-      "About this project",
+      title = "About this project",
       mainPanel(
         p("Placeholder")
       )
     ),
     
     tabPanel(
-      "Growth Rate by Gender and Cause",
+      title = "Growth Rate by Gender and Cause",
       sidebarLayout(
         sidebarPanel(
           checkboxGroupInput(
-            "gender_choices",
-            "Gender Options:",
-            genders
+            inputId = "gender_choices",
+            label = "Gender Options:",
+            choices = genders
           ),
           checkboxGroupInput(
-            "cause_choices",
-            "Cause Options:",
-            causes
+            inputId = "cause_choices",
+            label = "Cause Options:",
+            choices = causes
           )
         ),
         mainPanel(
@@ -63,7 +72,7 @@ shinyUI(
     ),
     
     tabPanel(
-      "Distrubution by State",
+      title = "Distrubution by State",
       sidebarLayout(
         sidebarPanel(
           p("Options here")
@@ -75,19 +84,24 @@ shinyUI(
     ),
     
     tabPanel(
-      "Factors of Impact",
+      title = "Factors of Impact",
       sidebarLayout(
         sidebarPanel(
-          p("Options here")
+          selectInput(
+            inputId = "factor",
+            label = "Sort by:",
+            choices = factors,
+            selected = "race"
+          )
         ),
         mainPanel(
-          p("Graph here")
+          plotlyOutput("donut_chart")
         )
       )
     ),
     
     tabPanel(
-      "Final Wrap Up and Conclusion",
+      title = "Final Wrap Up and Conclusion",
       mainPanel(
         p("Placeholder")
       )

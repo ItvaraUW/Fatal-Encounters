@@ -1,33 +1,32 @@
 library(dplyr)
 library(plotly)
-source(data/data.R)
 
 # Make an interactive donut chart that shows individuals within each group 
 # that was killed to fatal encounters.
 
-donut_chart <- function(data_frame_num, variable){
-  data_for_graph <- data_frame_num %>%
+donut_chart <- function(data_frame, sym_factor, factor){
+  data_for_graph <- data_frame %>%
     select(Subject.s.gender, Subject.s.race, 
            Cause.of.death, Date..Year.) %>%
-    rename(subject_gender = Subject.s.gender,
-           subject_race = Subject.s.race,
-           cause_of_death = Cause.of.death,
+    rename(gender = Subject.s.gender,
+           race = Subject.s.race,
+           cause = Cause.of.death,
            year = Date..Year.)
 
   interactive_plot <- data_for_graph %>% 
-    group_by(variable) %>% 
-    summarise(freq = length(variable)) %>% 
+    group_by(!!sym_factor) %>% 
+    summarise(freq = length(!!sym_factor)) %>% 
     plot_ly(
-      labels = ~variable,
+      labels = ~eval(parse(text = factor)),
       values = ~freq,
       type = "pie",
       textinfo = 'percent',
       hoverinfo = 'text',
-      text = ~paste(freq, variable),
+      text = ~paste(freq, eval(parse(text = factor))),
       hole = 0.6
     ) %>% 
     layout(
-      title = paste("Total Police Fatal Encounter by", variable),
+      title = paste("Total Police Fatal Encounter by", factor),
       xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
       yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
     )
