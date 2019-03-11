@@ -9,7 +9,7 @@
 # States interactive map
 ################################################################################
 
-library(tidyverse) # includes: ggplot2 dplyr tidyr stringr
+library(dplyr) # includes: ggplot2 dplyr tidyr stringr
 library(leaflet)
 
 make_map <- function(FE_df) {
