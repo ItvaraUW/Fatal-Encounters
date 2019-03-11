@@ -9,10 +9,10 @@
 # States interactive map
 ################################################################################
 
-library(dplyr) # includes: ggplot2 dplyr tidyr stringr
+library(dplyr)
 library(leaflet)
 
-make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
+make_map <- function(FE_df, state_p, gender_p, race_p, year_min_p, year_max_p) {
   profile <- FE_df %>%
     rename(
       name = Subject.s.name,
@@ -23,10 +23,10 @@ make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
       year = Date..Year.
     ) %>%
     select(name, gender, race, state, date, Longitude, Latitude, year) %>%
-    filter(state == state_p) %>%
-    filter(gender == gender_p) %>%
-    filter(race == race_p) %>%
-    filter(year == year_p)
+    filter(if (state_p == "all") TRUE else state == state_p) %>%
+    filter(if (gender_p == "all") TRUE else gender == gender_p) %>%
+    filter(if (race_p == "all") TRUE else race == race_p) %>%
+    filter(year >= year_min_p, year <= year_max_p)
 
   points_map <- profile %>%
     leaflet(options = leafletOptions(

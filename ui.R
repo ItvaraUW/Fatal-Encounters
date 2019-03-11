@@ -32,6 +32,7 @@ causes <- list(
 )
 
 races <- list(
+  "All Races" = "all",
   "African-American/Black" = "African-American/Black",
   "Asian/Pacific Islander" = "Asian/Pacific Islander",
   "European-American/White" = "European-American/White",
@@ -42,7 +43,7 @@ races <- list(
 )
 
 states <- list(
-  "United States" = "All",
+  "United States" = "all",
   "Alabama" = "AL",
   "Alaska" = "AK",
   "Arizona" = "AZ",
@@ -180,25 +181,32 @@ shinyUI(
             inputId = "state_in",
             label = "State",
             choices = states,
-            selected = "WA"
+            selected = "all"
           ),
           radioButtons(
             inputId = "gender_in",
             label = "Gender",
-            choices = genders
+            choices = list(
+              "All" = "all",
+              "Male" = "Male",
+              "Female" = "Female",
+              "Transgender" = "Transgender",
+              "Transexual" = "Transexual"
+            ),
+            selected = "all"
           ),
           selectInput(
             inputId = "race_in",
             label = "Race",
             choices = races,
-            selected = c(1)
+            selected = "all"
           ),
           sliderInput(
             inputId = "year_in",
             label = "Year",
             min = 2000,
             max = 2019,
-            value = 2019
+            value = c(2000, 2019)
           )
         ),
         mainPanel(
