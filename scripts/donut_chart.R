@@ -6,6 +6,11 @@ library(plotly)
 
 donut_chart <- function(data_frame, sym_factor, factor){
   data_for_graph <- data_frame %>%
+    mutate(
+      Subject.s.gender = replace(Subject.s.gender,
+                                 Subject.s.gender == "Femalr", "Female"),
+      Subject.s.gender = replace(Subject.s.gender,
+                                 Subject.s.gender == "White", NA)) %>% 
     select(Subject.s.gender, Subject.s.race, 
            Cause.of.death, Date..Year.) %>%
     rename(gender = Subject.s.gender,
@@ -16,6 +21,7 @@ donut_chart <- function(data_frame, sym_factor, factor){
   interactive_plot <- data_for_graph %>% 
     group_by(!!sym_factor) %>% 
     summarise(freq = length(!!sym_factor)) %>% 
+    filter(!(is.na(!!sym_factor))) %>% 
     plot_ly(
       labels = ~eval(parse(text = factor)),
       values = ~freq,

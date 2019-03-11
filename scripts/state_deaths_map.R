@@ -28,6 +28,10 @@ make_map <- function(FE_df, state_in, age_in, gender_in, race_in, year_in) {
     filter(state == state_in) %>%
     filter(age == age_in & gender == gender_in &
       race == race_in | year == year_in)
+    filter(state == state_in) %>%
+    filter(age == age_in & gender == gender_in &
+             race == race_in | year == year_in)
+
   points_map <- profile %>%
     leaflet(options = leafletOptions(
       dragging = F,
@@ -38,5 +42,6 @@ make_map <- function(FE_df, state_in, age_in, gender_in, race_in, year_in) {
     addCircleMarkers(
       lat = ~Latitude, lng = ~Longitude,
       label = ~paste(name, date, sep = " - "), radius = 2
-    )
+    ) %>%
+    setView(lat = 39.8282, lng = -98.5795, zoom = 4) ## middle US
 }
