@@ -5,6 +5,11 @@
 
 # library("googlesheets") // to maybe use later as api access
 
-FE_df <- read.csv("Fatal_Encounters_data.csv",
+read_data <- read.csv("data/Fatal_Encounters_data.csv",
                   stringsAsFactors = F,
                   na.strings = c("", "NA"))
+
+removed_invalids_df <- read_data[!(grepl(
+  "2100", read_data$Date..Year.)),]
+
+FE_df <- transform(removed_invalids_df, Date..Year. = as.numeric(Date..Year.))
