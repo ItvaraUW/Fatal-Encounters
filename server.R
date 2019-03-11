@@ -21,10 +21,9 @@ shinyServer(function(input, output) {
   output$map <- renderLeaflet({
     make_map(FE_df,
              input$state_in,
-             input$age_in,
              input$gender_in,
              input$race_in,
-             input$gender_in)
+             input$year_in)
   })
   
   output$donut_chart <- renderPlotly({

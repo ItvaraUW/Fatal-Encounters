@@ -12,29 +12,25 @@
 library(dplyr) # includes: ggplot2 dplyr tidyr stringr
 library(leaflet)
 
-make_map <- function(FE_df, state_in, age_in, gender_in, race_in, year_in) {
+make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
   profile <- FE_df %>%
     rename(
       name = Subject.s.name,
-      age = Subject.s.age,
       gender = Subject.s.gender,
       race = Subject.s.race,
       state = Location.of.death..state.,
       date = Date.of.injury.resulting.in.death..month.day.year.,
       year = Date..Year.
     ) %>%
-    select(name, age, gender, race, state, date, Longitude, Latitude, year) %>%
-    filter(state %in% state.abb) %>%
-    filter(state == state_in) %>%
-    filter(age == age_in & gender == gender_in &
-      race == race_in | year == year_in)
-    filter(state == state_in) %>%
-    filter(age == age_in & gender == gender_in &
-             race == race_in | year == year_in)
+    select(name, gender, race, state, date, Longitude, Latitude, year) %>%
+    filter(state == state_p) %>%
+    filter(gender == gender_p) %>%
+    filter(race == race_p) %>%
+    filter(year == year_p)
 
   points_map <- profile %>%
     leaflet(options = leafletOptions(
-      dragging = F,
+      dragging = T,
       minZoom = 5,
       maxZoom = 10
     )) %>%
@@ -42,6 +38,5 @@ make_map <- function(FE_df, state_in, age_in, gender_in, race_in, year_in) {
     addCircleMarkers(
       lat = ~Latitude, lng = ~Longitude,
       label = ~paste(name, date, sep = " - "), radius = 2
-    ) %>%
-    setView(lat = 39.8282, lng = -98.5795, zoom = 4) ## middle US
+    )
 }

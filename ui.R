@@ -89,31 +89,25 @@ shinyUI(
           textInput(
             inputId = "state_in",
             label = "State",
-            value = ""
-          ),
-          numericInput(
-            inputId = "age_in",
-            label = "Age",
-            value = ""
+            value = "WA"
           ),
           radioButtons(
             inputId = "gender_in",
             label = "Gender",
-            choices = genders,
-            selected = NULL
+            choices = genders
           ),
           selectInput(
             inputId = "race_in",
             label = "Race",
             choices = races,
-            selected = NULL
+            selected = c(1)
           ),
           sliderInput(
             inputId = "year_in",
             label = "Year",
             min = 2000,
             max = 2019,
-            value = 2000
+            value = 2019
           )
         ),
         mainPanel(
