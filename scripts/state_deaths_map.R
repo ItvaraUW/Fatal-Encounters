@@ -10,6 +10,7 @@
 ################################################################################
 
 library(dplyr)
+library(maps)
 library(leaflet)
 
 make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
