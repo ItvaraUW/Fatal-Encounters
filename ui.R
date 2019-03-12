@@ -158,12 +158,14 @@ shinyUI(
           checkboxGroupInput(
             inputId = "gender_choices",
             label = "Gender Options:",
-            choices = genders
+            choices = genders,
+            selected = "Male"
           ),
           checkboxGroupInput(
             inputId = "cause_choices",
             label = "Cause Options:",
-            choices = causes
+            choices = causes,
+            selected = "Asphyxiated/Restrained"
           )
         ),
         mainPanel(
