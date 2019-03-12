@@ -30,7 +30,7 @@ make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
     filter(year == year_p)
 
   state_poly <- map("state", fill = T, plot = F)
-  labels <- paste("State Total: ", nrow(profile))
+  labels <- paste("Total Incidents: ", nrow(profile))
   
   points_map <- profile %>%
     leaflet(options = leafletOptions(
@@ -49,8 +49,7 @@ make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
       color = "white", weight = 1, smoothFactor = 0.5,
       fillColor = rainbow(30, alpha = NULL),
       stroke = T, 
-      highlightOptions = highlightOptions(color = "#428bca", weight = 2,
-                                          bringToFront = T),
+      
       label = labels,
       labelOptions = labelOptions(
         style = list("font-weight" = "normal", padding = "3px 8px"),
