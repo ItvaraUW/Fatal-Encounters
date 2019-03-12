@@ -32,7 +32,9 @@ donut_chart <- function(data_frame, sym_factor, factor){
       hole = 0.6
     ) %>% 
     layout(
-      title = paste("Total Police Fatal Encounter by", factor),
+      title = paste("Total Police Fatal Encounter by ",
+                    toupper(substr(factor, 1, 1)), 
+                    substring(factor, 2), sep = ""),
       xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
       yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
     )
