@@ -106,7 +106,7 @@ factors <- list(
 shinyUI(
   navbarPage(
     title = "Fatal Encounters",
-    theme = shinytheme("journal"),
+    theme = shinytheme("yeti"),
     
     tabPanel(
       title = "About this project",
