@@ -206,7 +206,7 @@ shinyUI(
             label = "Year",
             min = 2000,
             max = 2019,
-            value = c(2000, 2019)
+            value = 2019
           )
         ),
         mainPanel(

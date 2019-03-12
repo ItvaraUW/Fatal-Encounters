@@ -12,7 +12,7 @@
 library(dplyr)
 library(leaflet)
 
-make_map <- function(FE_df, state_p, gender_p, race_p, year_min_p, year_max_p) {
+make_map <- function(FE_df, state_p, gender_p, race_p, year_p) {
   profile <- FE_df %>%
     rename(
       name = Subject.s.name,
@@ -26,12 +26,12 @@ make_map <- function(FE_df, state_p, gender_p, race_p, year_min_p, year_max_p) {
     filter(if (state_p == "all") TRUE else state == state_p) %>%
     filter(if (gender_p == "all") TRUE else gender == gender_p) %>%
     filter(if (race_p == "all") TRUE else race == race_p) %>%
-    filter(year >= year_min_p, year <= year_max_p)
+    filter(year == year_p)
 
   points_map <- profile %>%
     leaflet(options = leafletOptions(
       dragging = T,
-      minZoom = 5,
+      minZoom = 2,
       maxZoom = 10
     )) %>%
     addProviderTiles("CartoDB.Positron") %>%

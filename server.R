@@ -23,8 +23,7 @@ shinyServer(function(input, output) {
              input$state_in,
              input$gender_in,
              input$race_in,
-             input$year_in[1],
-             input$year_in[2])
+             input$year_in)
   })
   
   output$donut_chart <- renderPlotly({
