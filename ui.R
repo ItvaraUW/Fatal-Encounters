@@ -1,5 +1,5 @@
 # title: "INFO&201: Final Project"
-# subtitle: "On Fatal Encounters"
+# subtitle: "Fatal Encounters"
 # authors: "Bernabe Ibarra | Feng Yu Yeh | Sean Le | Thomas That"
 # date: "20190301"
 library(shiny)
@@ -109,29 +109,41 @@ shinyUI(
     theme = shinytheme("yeti"),
     
     tabPanel(
-      title = "About this project",
+      title = "About Us",
       mainPanel(
         h1("Project Description"),
+        h2("Our Purpose"),
+        p("The purpose for this project was to spread awareness of police
+          brutality. It is a growing problem in the U.S. that has received
+          a lot of attention in the recent years. Despite the attention it
+          gets, however, the amount of deaths continue to grow. That is why
+          we have created visualizations of death records related to police
+          brutality. They were made to visualize possible patterns in how
+          these events happen. However, we want to make it clear that
+          the correlations found are not 100% the causation. It is only
+          made to inform the public of past records so that they may make
+          informed decisions based on such information"),
         h2("Data Set"),
         p("The data set we’re working with is called “Fatal Encounters”. 
           This database consists of information of civilian interactions with 
-          the police and resulting in the death of a civilian - 
-          in the United States of America since January 1st 2000."),
+          the police that resulted in the death of that civilian. The database 
+          has recorded data of these encounters in the United States of America 
+          since January 1st 2000."),
         p("The founding director of this dataset was a journalist called 
           D. Brian Burghart. He’s a former editor and publisher of Reno News 
           and Review, and a journalism instructor at the University of Nevada, 
           Reno."),
         p("The way they collect data is from data sets like KilledByPolice.net 
-          or Los Angeles Time’s The Homicide Report. They then continue to 
-          do further research on any information they may have missed or 
-          from reports by volunteers. After that, they start to verify it
-          against published source by their paid Principal Investigator. 
-          The verification of data are all compared to published media reports
-          or public records."),
+          or Los Angeles Time’s “The Homicide Report“. They then continue 
+          to do further research on any information they may have missed or 
+          receive information from reports by volunteers. After that, it is
+          verified against published sources by their paid Principal 
+          Investigator. All incidents reported are compared to published 
+          media reports or public records to verify their accuracy."),
         p("The dataset can be found through ",
           a("Fatal Encounter Datasheet", 
             href = "https://docs.google.com/spreadsheets/d/1dKmaV_JiWcG8XBoRgP8b4e9Eopkpgt7FL7nyspvzAsE/edit#gid=0"
-        )
+          )
         ),
         h2("Target Audience"),
         p("The target audience for this data set are people concerned about 
@@ -140,14 +152,19 @@ shinyUI(
           were justified. This may also help the government to let them know 
           whether they need to modify their policies or training in order to 
           decrease police involved deaths."),
-        h2("Major Questions"),
-        p("1. How is the amount of fatal encounters with law enforcement 
-          differ per state across the USA?"),
-        p("2. Is there a correlated growth rate based on gender or cause of 
-          death each year?"),
-        p("3. Does race have a major impact on the mortality rate due to police 
-          encounters across the USA? If not what factor has the largest impact 
-          on mortality rate?")
+        h2("Interactive Tools"),
+        p("The tools in the tabs listed above were made to answer three main
+          questions about the data. How does the amount of fatal encounters
+          with law enforcement differ per state across the USA? Is there a
+          correlated growth rate of deaths based on gender or cause of death
+          each year? And does race have a major impact on the mortality rate
+          due to police encounters across the USA? If not, what factor has the
+          largest impact on mortality rate?"),
+        p("To answer this, we've created an interactive map that will provide
+          the locations of where each death took place, a line graph that will
+          show the progression of the number of deaths year by year, and a
+          donut chart that will display the percent ratio of deaths for certain
+          groups in multiple categories.")
       )
     ),
     

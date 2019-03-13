@@ -17,15 +17,20 @@ death_rate_growth <- function(data_frame, ..., col_name) {
     group_by_(col_name, "Date..Year.") %>%
     count() %>%
     plot_ly(
-      x=~Date..Year.,
-      y=~n,
-      group=~get(col_name),
-      type="scatter",color=~get(col_name),
-      mode="lines+markers"
+      x = ~Date..Year.,
+      y = ~n,
+      text = ~paste0(
+        "Year: ", Date..Year., "<br>Number Killed: ", n, "<br>",
+        key[col_name], ": ", get(col_name)
+      ),
+      hoverinfo = 'text',
+      group = ~get(col_name),
+      type = "scatter", color = ~get(col_name),
+      mode = "lines+markers"
     ) %>% 
     add_trace(
-      type="scatter",
-      mode="line",
+      type = "scatter",
+      mode = "line",
       showlegend = F
     ) %>%
     layout(
