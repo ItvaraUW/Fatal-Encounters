@@ -28,7 +28,10 @@ donut_chart <- function(data_frame, sym_factor, factor){
       type = "pie",
       textinfo = 'percent',
       hoverinfo = 'text',
-      text = ~paste(freq, eval(parse(text = factor))),
+      text = ~paste("Number Killed: ", freq, "<br>", 
+                    toupper(substr(sym_factor, 1, 1)), 
+                    substring(sym_factor, 2), sep = "", ": ",
+                    eval(parse(text = factor))),
       hole = 0.6
     ) %>% 
     layout(
