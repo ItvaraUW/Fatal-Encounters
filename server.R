@@ -33,7 +33,8 @@ shinyServer(function(input, output) {
       filter(if (input$state_in == "all") T else state == input$state_in) %>%
       filter(if (input$gender_in == "all") T else gender == input$gender_in) %>%
       filter(if (input$race_in == "all") T else race == input$race_in) %>%
-      filter(year == input$year_in)
+      filter(year >= input$year_in[1]) %>% 
+      filter(year <= input$year_in[2])
     
     validate(
       need(nrow(profile) != 0, "Data not found for that specification.")
