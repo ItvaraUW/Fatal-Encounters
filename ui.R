@@ -169,8 +169,8 @@ shinyUI(
           )
         ),
         mainPanel(
-          plotOutput("gender_plot"),
-          plotOutput("cause_plot")
+          plotlyOutput("gender_plot"),
+          plotlyOutput("cause_plot")
         )
       )
     ),

@@ -1,5 +1,6 @@
 library(dplyr)
 library(ggplot2)
+library(plotly)
 
 # Creates a list of labels for whatever column name is chosen
 # for the function
@@ -15,13 +16,21 @@ death_rate_growth <- function(data_frame, ..., col_name) {
     filter(get(col_name) %in% c(...)) %>%
     group_by_(col_name, "Date..Year.") %>%
     count() %>%
-    ggplot(aes(x = Date..Year., y = n, color = get(col_name))) +
-    geom_line() +
-    geom_point() +
-    labs(
-      title = "Death Growth Rate",
-      x = "Year",
-      y = "Number of Deaths",
-      color = key[col_name]
+    plot_ly(
+      x=~Date..Year.,
+      y=~n,
+      group=~get(col_name),
+      type="scatter",color=~get(col_name),
+      mode="lines+markers"
+    ) %>% 
+    add_trace(
+      type="scatter",
+      mode="line",
+      showlegend = F
+    ) %>%
+    layout(
+      title = paste("Death Growth Rate by", key[col_name]),
+      xaxis = list(title = "Year"),
+      yaxis = list(title = "Number of Deaths")
     )
 }
