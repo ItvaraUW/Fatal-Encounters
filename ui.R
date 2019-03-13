@@ -225,7 +225,7 @@ shinyUI(
             label = "Year",
             min = 2000,
             max = 2019,
-            value = 2019
+            value = c(2018, 2019)
           )
         ),
         mainPanel(
@@ -248,13 +248,6 @@ shinyUI(
         mainPanel(
           plotlyOutput("donut_chart")
         )
-      )
-    ),
-    
-    tabPanel(
-      title = "Final Wrap Up and Conclusion",
-      mainPanel(
-        p("Placeholder")
       )
     )
   )

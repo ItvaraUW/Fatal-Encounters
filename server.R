@@ -1,4 +1,5 @@
 library(shiny)
+library(dplyr)
 
 source("data/data.R")
 source("scripts/death_growth_rate.R")
@@ -19,11 +20,27 @@ shinyServer(function(input, output) {
   })
   
   output$map <- renderLeaflet({
-    make_map(FE_df,
-             input$state_in,
-             input$gender_in,
-             input$race_in,
-             input$year_in)
+    profile <- FE_df %>%
+      rename(
+        name = Subject.s.name,
+        gender = Subject.s.gender,
+        race = Subject.s.race,
+        state = Location.of.death..state.,
+        date = Date.of.injury.resulting.in.death..month.day.year.,
+        year = Date..Year.
+      ) %>%
+      select(name, gender, race, state, date, Longitude, Latitude, year) %>%
+      filter(if (input$state_in == "all") T else state == input$state_in) %>%
+      filter(if (input$gender_in == "all") T else gender == input$gender_in) %>%
+      filter(if (input$race_in == "all") T else race == input$race_in) %>%
+      filter(year >= input$year_in[1]) %>% 
+      filter(year <= input$year_in[2])
+    
+    validate(
+      need(nrow(profile) != 0, "Data not found for that specification.")
+    )
+    
+    make_map(profile)
   })
   
   output$donut_chart <- renderPlotly({
