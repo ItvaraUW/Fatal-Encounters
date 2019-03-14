@@ -114,10 +114,10 @@ shinyUI(
       title = "Project Description",
       mainPanel(
         h1("Our Purpose"),
-        p("The purpose for this project was to spread awareness of police
+        p("The purpose of this project was to spread awareness of police
           brutality. It is a growing problem in the U.S. that has received
-          a lot of attention in the recent years. Despite the attention it
-          gets, however, the amount of deaths continue to grow. That is why
+          a lot of attention in recent years. Despite the attention it
+          gets, however, the amount of deaths continues to grow. That is why
           we have created visualizations of death records related to police
           brutality. They were made to visualize possible patterns in how
           these events happen. However, we want to make it clear that
@@ -126,7 +126,7 @@ shinyUI(
           informed decisions based on such information"),
         h1("Data Set"),
         p("The data set we’re working with is called “Fatal Encounters”.
-          This database consists of information of civilian interactions with
+          This database consists of information on civilian interactions with
           the police that resulted in the death of that civilian. The database
           has recorded data of these encounters in the United States of America
           since January 1st 2000."),
@@ -160,7 +160,7 @@ shinyUI(
           correlated growth rate of deaths based on gender or cause of death
           each year? And does race have a major impact on the mortality rate
           due to police encounters across the USA? If not, what factor has the
-          largest impact on mortality rate?"),
+          largest impact on the mortality rate?"),
         p("To answer this, we've created an interactive map that will provide
           the locations of where each death took place, a line graph that will
           show the progression of the number of deaths year by year, and a
