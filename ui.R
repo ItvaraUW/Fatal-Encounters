@@ -208,7 +208,7 @@ shinyUI(
         ),
         mainPanel(
           h1("Map of Deaths in the U.S."),
-          leafletOutput("map"),
+          leafletOutput("map")
         )
       )
     ),
