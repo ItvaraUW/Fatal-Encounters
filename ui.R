@@ -108,7 +108,7 @@ shinyUI(
   navbarPage(
     title = "Fatal Encounters",
     theme = shinytheme("yeti"),
-    
+
     # Project Description Tab
     tabPanel(
       title = "Project Description",
@@ -125,33 +125,33 @@ shinyUI(
           made to inform the public of past records so that they may make
           informed decisions based on such information"),
         h1("Data Set"),
-        p("The data set we’re working with is called “Fatal Encounters”. 
-          This database consists of information of civilian interactions with 
-          the police that resulted in the death of that civilian. The database 
-          has recorded data of these encounters in the United States of America 
+        p("The data set we’re working with is called “Fatal Encounters”.
+          This database consists of information of civilian interactions with
+          the police that resulted in the death of that civilian. The database
+          has recorded data of these encounters in the United States of America
           since January 1st 2000."),
-        p("The founding director of this dataset was a journalist called 
-          D. Brian Burghart. He’s a former editor and publisher of Reno News 
-          and Review, and a journalism instructor at the University of Nevada, 
+        p("The founding director of this dataset was a journalist called
+          D. Brian Burghart. He’s a former editor and publisher of Reno News
+          and Review, and a journalism instructor at the University of Nevada,
           Reno."),
-        p("The way they collect data is from data sets like KilledByPolice.net 
-          or Los Angeles Time’s “The Homicide Report“. They then continue 
-          to do further research on any information they may have missed or 
+        p("The way they collect data is from data sets like KilledByPolice.net
+          or Los Angeles Time’s “The Homicide Report“. They then continue
+          to do further research on any information they may have missed or
           receive information from reports by volunteers. After that, it is
-          verified against published sources by their paid Principal 
-          Investigator. All incidents reported are compared to published 
+          verified against published sources by their paid Principal
+          Investigator. All incidents reported are compared to published
           media reports or public records to verify their accuracy."),
         p("The dataset can be found through ",
-          a("Fatal Encounter Datasheet", 
+          a("Fatal Encounter Datasheet",
             href = "https://docs.google.com/spreadsheets/d/1dKmaV_JiWcG8XBoRgP8b4e9Eopkpgt7FL7nyspvzAsE/edit#gid=0"
           )
         ),
         h1("Target Audience"),
-        p("The target audience for this data set are people concerned about 
-          police brutality because in a democracy, citizens should have the 
-          right to know who and why they were killed and whether these deaths 
-          were justified. This may also help the government to let them know 
-          whether they need to modify their policies or training in order to 
+        p("The target audience for this data set are people concerned about
+          police brutality because in a democracy, citizens should have the
+          right to know who and why they were killed and whether these deaths
+          were justified. This may also help the government to let them know
+          whether they need to modify their policies or training in order to
           decrease police involved deaths."),
         h1("Interactive Tools"),
         p("The tools in the tabs listed above were made to answer three main
@@ -168,7 +168,7 @@ shinyUI(
           groups in multiple categories.")
       )
     ),
-    
+
     # State Distribution Tab
     tabPanel(
       title = "State Distribution",
@@ -211,7 +211,7 @@ shinyUI(
         )
       )
     ),
-    
+
     # Growth Rate Tab
     tabPanel(
       title = "Growth Rates",
@@ -236,7 +236,7 @@ shinyUI(
         )
       )
     ),
-    
+
     # Factors of Impact Tab
     tabPanel(
       title = "Factors of Impact",

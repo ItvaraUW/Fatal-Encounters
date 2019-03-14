@@ -28,11 +28,11 @@ death_rate_growth <- function(data_frame, ..., col_name) {
         "Year: ", Date..Year., "<br>Number Killed: ", n, "<br>",
         key[col_name], ": ", get(col_name)
       ),
-      hoverinfo = 'text',
+      hoverinfo = "text",
       group = ~get(col_name),
       type = "scatter", color = ~get(col_name),
       mode = "lines+markers"
-    ) %>% 
+    ) %>%
     add_trace(
       type = "scatter",
       mode = "line",
