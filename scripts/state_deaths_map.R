@@ -27,7 +27,6 @@ make_map <- function(profile) {
       lng = state_poly$x,
       lat = state_poly$y,
       color = "white", weight = 1, smoothFactor = 0.5,
-      fillColor = rainbow(30, alpha = NULL),
       stroke = T,
 
       label = labels,
