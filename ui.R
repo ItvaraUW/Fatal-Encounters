@@ -142,7 +142,8 @@ shinyUI(
           media reports or public records to verify their accuracy."),
         p("The dataset can be found through ",
           a("Fatal Encounter Datasheet",
-            href = "https://docs.google.com/spreadsheets/d/1dKmaV_JiWcG8XBoRgP8b4e9Eopkpgt7FL7nyspvzAsE/edit#gid=0"
+            href = paste0("https://docs.google.com/spreadsheets/d/1dKmaV_JiWcG",
+                          "8XBoRgP8b4e9Eopkpgt7FL7nyspvzAsE/edit#gid=0")
           )
         ),
         h1("Target Audience"),
@@ -253,7 +254,7 @@ shinyUI(
         )
       )
     ),
-    
+
     # Data Analysis tab
     tabPanel(
       title = "Data Analysis",

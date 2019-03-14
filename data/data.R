@@ -10,6 +10,6 @@ read_data <- read.csv("data/Fatal_Encounters_data.csv",
                   na.strings = c("", "NA"))
 
 removed_invalids_df <- read_data[!(grepl(
-  "2100", read_data$Date..Year.)),]
+  "2100", read_data$Date..Year.)), ]
 
 FE_df <- transform(removed_invalids_df, Date..Year. = as.numeric(Date..Year.))

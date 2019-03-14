@@ -6,7 +6,7 @@
 library(dplyr)
 library(plotly)
 
-# Make an interactive donut chart that shows individuals within each group 
+# Makes an interactive donut chart that shows individuals within each group 
 # that was killed to fatal encounters.
 
 donut_chart <- function(data_frame, sym_factor, factor){

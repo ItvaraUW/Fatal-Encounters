@@ -3,16 +3,11 @@
 # authors: "Bernabe Ibarra | Feng Yu Yeh | Sean Le | Thomas That"
 # date: "20190301"
 
-## A function needs to be made to generate a map of deaths in each state
-
-################################################################################
-# States interactive map
-################################################################################
-
 library(dplyr)
 library(maps)
 library(leaflet)
 
+# Generates a map of deaths in each state
 make_map <- function(profile) {
   state_poly <- map("state", fill = T, plot = F)
   labels <- paste("Total Incidents: ", nrow(profile))
@@ -34,7 +29,7 @@ make_map <- function(profile) {
       color = "white", weight = 1, smoothFactor = 0.5,
       fillColor = rainbow(30, alpha = NULL),
       stroke = T,
-    
+
       label = labels,
       labelOptions = labelOptions(
         style = list("font-weight" = "normal", padding = "3px 8px"),
