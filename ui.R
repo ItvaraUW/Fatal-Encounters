@@ -122,7 +122,7 @@ shinyUI(
           these events happen. However, we want to make it clear that
           the correlations found are not 100% the causation. It is only
           made to inform the public of past records so that they may make
-          informed decisions based on such information"),
+          informed decisions based on such information."),
         h1("Data Set"),
         p("The data set we’re working with is called “Fatal Encounters”.
           This database consists of information on civilian interactions with
@@ -276,7 +276,7 @@ shinyUI(
           the years along with many other people and causes. While the graphs
           see a steep drop towards the end, that is due to the fact that the
           full year of 2019 has not passed yet. 2019 could continue the trend
-          of growth by the end of the year"),
+          of growth by the end of the year."),
         h1("Factors of Impact Data"),
         p("This donut chart shows that there were more victims that were of an
           unspecified race than many of the other races. It also showed us that
@@ -287,7 +287,7 @@ shinyUI(
           have a similar ratio to those who are White and those who are Black.
           The years also seem to have a similar ratio of deaths. Although, it
           should be known that other factors can affect the ratios of these
-          categories"),
+          categories."),
         h1("Use of the Data"),
         p("From all the data visualizations, there have been many leading
           factors of different categories. This could be used to identify the
