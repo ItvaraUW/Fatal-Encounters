@@ -2,6 +2,7 @@
 # subtitle: "Fatal Encounters"
 # authors: "Bernabe Ibarra | Feng Yu Yeh | Sean Le | Thomas That"
 # date: "20190301"
+
 library(shiny)
 library(shinythemes)
 library(plotly)
@@ -108,11 +109,11 @@ shinyUI(
     title = "Fatal Encounters",
     theme = shinytheme("yeti"),
     
+    # Project Description Tab
     tabPanel(
-      title = "About Us",
+      title = "Project Description",
       mainPanel(
-        h1("Project Description"),
-        h2("Our Purpose"),
+        h1("Our Purpose"),
         p("The purpose for this project was to spread awareness of police
           brutality. It is a growing problem in the U.S. that has received
           a lot of attention in the recent years. Despite the attention it
@@ -123,7 +124,7 @@ shinyUI(
           the correlations found are not 100% the causation. It is only
           made to inform the public of past records so that they may make
           informed decisions based on such information"),
-        h2("Data Set"),
+        h1("Data Set"),
         p("The data set we’re working with is called “Fatal Encounters”. 
           This database consists of information of civilian interactions with 
           the police that resulted in the death of that civilian. The database 
@@ -145,14 +146,14 @@ shinyUI(
             href = "https://docs.google.com/spreadsheets/d/1dKmaV_JiWcG8XBoRgP8b4e9Eopkpgt7FL7nyspvzAsE/edit#gid=0"
           )
         ),
-        h2("Target Audience"),
+        h1("Target Audience"),
         p("The target audience for this data set are people concerned about 
           police brutality because in a democracy, citizens should have the 
           right to know who and why they were killed and whether these deaths 
           were justified. This may also help the government to let them know 
           whether they need to modify their policies or training in order to 
           decrease police involved deaths."),
-        h2("Interactive Tools"),
+        h1("Interactive Tools"),
         p("The tools in the tabs listed above were made to answer three main
           questions about the data. How does the amount of fatal encounters
           with law enforcement differ per state across the USA? Is there a
@@ -168,32 +169,9 @@ shinyUI(
       )
     ),
     
+    # State Distribution Tab
     tabPanel(
-      title = "Growth Rate by Gender and Cause",
-      sidebarLayout(
-        sidebarPanel(
-          checkboxGroupInput(
-            inputId = "gender_choices",
-            label = "Gender Options:",
-            choices = genders,
-            selected = "Male"
-          ),
-          checkboxGroupInput(
-            inputId = "cause_choices",
-            label = "Cause Options:",
-            choices = causes,
-            selected = "Asphyxiated/Restrained"
-          )
-        ),
-        mainPanel(
-          plotlyOutput("gender_plot"),
-          plotlyOutput("cause_plot")
-        )
-      )
-    ),
-    
-    tabPanel(
-      title = "Distrubution by State",
+      title = "State Distribution",
       sidebarLayout(
         sidebarPanel(
           selectInput(
@@ -234,6 +212,32 @@ shinyUI(
       )
     ),
     
+    # Growth Rate Tab
+    tabPanel(
+      title = "Growth Rates",
+      sidebarLayout(
+        sidebarPanel(
+          checkboxGroupInput(
+            inputId = "gender_choices",
+            label = "Gender Options:",
+            choices = genders,
+            selected = "Male"
+          ),
+          checkboxGroupInput(
+            inputId = "cause_choices",
+            label = "Cause Options:",
+            choices = causes,
+            selected = "Asphyxiated/Restrained"
+          )
+        ),
+        mainPanel(
+          plotlyOutput("gender_plot"),
+          plotlyOutput("cause_plot")
+        )
+      )
+    ),
+    
+    # Factors of Impact Tab
     tabPanel(
       title = "Factors of Impact",
       sidebarLayout(
@@ -252,4 +256,3 @@ shinyUI(
     )
   )
 )
-  

@@ -1,3 +1,8 @@
+# title: "INFO&201: Final Project"
+# subtitle: "Fatal Encounters"
+# authors: "Bernabe Ibarra | Feng Yu Yeh | Sean Le | Thomas That"
+# date: "20190301"
+
 library(dplyr)
 library(ggplot2)
 library(plotly)
