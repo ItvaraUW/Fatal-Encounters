@@ -22,10 +22,11 @@ shinyServer(function(input, output) {
         gender = Subject.s.gender,
         race = Subject.s.race,
         state = Location.of.death..state.,
+        city = Location.of.death..city.,
         date = Date.of.injury.resulting.in.death..month.day.year.,
         year = Date..Year.
       ) %>%
-      select(name, gender, race, state, date, Longitude, Latitude, year) %>%
+      select(name, gender, race, state, city, date, Longitude, Latitude, year) %>%
       filter(if (input$state_in == "all") T
              else state == input$state_in) %>%
       filter(if (input$gender_in == "all") T
@@ -34,6 +35,7 @@ shinyServer(function(input, output) {
              else race == input$race_in) %>%
       filter(year >= input$year_in[1]) %>%
       filter(year <= input$year_in[2])
+
     # If there is no data under specification,
     # throws an error replacement message.
     validate(

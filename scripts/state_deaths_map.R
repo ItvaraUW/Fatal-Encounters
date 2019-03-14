@@ -19,21 +19,21 @@ make_map <- function(profile) {
       maxZoom = 10
     )) %>%
     addProviderTiles("CartoDB.Positron") %>%
-    addCircleMarkers(
-      lat = ~Latitude, lng = ~Longitude,
-      label = ~paste(name, date, sep = " - "), radius = 1
-    ) %>%
     addPolygons(
       lng = state_poly$x,
       lat = state_poly$y,
       color = "white", weight = 1, smoothFactor = 0.5,
       stroke = T,
-
       label = labels,
       labelOptions = labelOptions(
         style = list("font-weight" = "normal", padding = "3px 8px"),
         textsize = "15px",
         direction = "auto")
+    ) %>%
+    addCircleMarkers(
+      lat = ~Latitude, lng = ~Longitude,
+      label = ~paste0("(", date, ") ", city, ", ", state),
+      radius = 1
     ) %>%
     setView(lat = 39.8282, lng = -98.5795, zoom = 4) ## middle US
 }
