@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+.navbar {
+    background-color: black;
+    font-family: 'Noto Sans';
+    -webkit-text-fill-color: whitesmoke
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {background-color: gray;}
