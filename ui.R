@@ -263,11 +263,11 @@ shinyUI(
         p("From the data given in the map, California has the highest amount of
           deaths out of all the states and has the highest amount of deaths of
           each race except Native American/Alaskan since 2002. Not only that,
-          but it is also the state that had the most deaths each year. This is
-          likely due to the size of California, but it is not the only factor
-          since big states like Texas didn't have as many deaths. There are a
-          few outliers on the map, but they are so little that they have no
-          effect on the patterns of the data."),
+          it is also the state that had the most deaths each year. This is
+          likely due to the population density of California, but it is not the
+          only factor since big states like Texas didn't have as many deaths.
+          There are a few outliers on the map, but they are so little that they
+          have no effect on the patterns of the data."),
         h1("Growth Rate Data"),
         p("The Death Growth Rate data shows that highest number of victims to
           these fatal encounters are males and the most common cause of deaths
@@ -290,8 +290,8 @@ shinyUI(
         h1("Use of the Data"),
         p("From all the data visualizations, there have been many leading
           factors of different categories. This could be used to identify the
-          problem and how it can be fixed. However, these factors should **not**
-          be treated as the main cause to all deaths by police officers. Many of
+          problem and how it can be fixed. However, these factors should NOT
+          be treated as the main cause of all deaths by police officers. Many of
           these factors affect the other's outcomes. Our purpose was to provide
           this information so that the public can know about this and make
           informed decisions based on it. Instead of focusing on one category,
