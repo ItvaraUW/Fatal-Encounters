@@ -16,7 +16,7 @@ library(leaflet)
 make_map <- function(profile) {
   state_poly <- map("state", fill = T, plot = F)
   labels <- paste("Total Incidents: ", nrow(profile))
-  
+
   points_map <- profile %>%
     leaflet(options = leafletOptions(
       dragging = T,
@@ -33,8 +33,8 @@ make_map <- function(profile) {
       lat = state_poly$y,
       color = "white", weight = 1, smoothFactor = 0.5,
       fillColor = rainbow(30, alpha = NULL),
-      stroke = T, 
-      
+      stroke = T,
+    
       label = labels,
       labelOptions = labelOptions(
         style = list("font-weight" = "normal", padding = "3px 8px"),

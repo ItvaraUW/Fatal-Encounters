@@ -12,7 +12,7 @@ source("scripts/donut_chart.R")
 source("scripts/state_deaths_map.R")
 
 shinyServer(function(input, output) {
-  
+
   # Renders a map showing distribution of fatalities across specified areas.
   # Filtering of data is done here to ensure the error is correctly thrown.
   output$map <- renderLeaflet({
@@ -39,24 +39,24 @@ shinyServer(function(input, output) {
     validate(
       need(nrow(profile) != 0, "Data not found for that specification.")
     )
-    
+
     make_map(profile)
   })
-  
+
   # Renders a graphic detailing growth rate by gender.
   output$gender_plot <- renderPlotly({
     death_rate_growth(FE_df,
                       input$gender_choices,
                       col_name = "Subject.s.gender")
   })
-  
+
   # Renders a graphic detailing growth rate by cause.
   output$cause_plot <- renderPlotly({
     death_rate_growth(FE_df,
                       input$cause_choices,
                       col_name = "Cause.of.death")
   })
-  
+
   # Renders a donut chart sorted by the inputed factor.
   output$donut_chart <- renderPlotly({
     donut_chart(FE_df,
