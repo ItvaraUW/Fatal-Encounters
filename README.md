@@ -1,3 +1,5 @@
+##### Final Dataset Visualization: [Link](https://leo19971126.shinyapps.io/info-201-final-project/) 
+
 # **Final Project Proposal**
 ## **Summary**
 The **Fatal Encounters dataset** inspired our project to map how often **police encounters result with the killing of a person by police officers.** Our _interactive Shiny website_ will draw from a **_live compilation_** of these encounters and thus remain _up to date_. This hopefully will serve as a tool to supplement the works and efforts of everyone involved in the Fatal Encounters research project. To do so, we will:
