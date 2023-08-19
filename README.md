@@ -1,4 +1,4 @@
-##### Final Dataset Visualization: [Link](https://leo19971126.shinyapps.io/info-201-final-project/) 
+# Final Dataset Visualization: [Link](https://leo19971126.shinyapps.io/info-201-final-project/) 
 
 # **Final Project Proposal**
 ## **Summary**
